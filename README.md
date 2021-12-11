@@ -11,6 +11,7 @@ nixos. haha yeah okay you don't need it but if you're not gonna use the nix-shel
 ## how to use (please don't unless you're desperate (i was))
 
 1. have a twitter dev account with an API v1 app from when you were in high school, put its keys and secrets in `twitter.credentials` file as a json object with keys as seen in `main.py`
-2. use `create.py` and `login.py` scripts to generate files with mastodon credentials
-3. put `main.py` in a cron job
-4. delete 200 toots this thing created based on 200 tweets it saw that were actually pretty old oh well guess you should've commented shit out but that was difficult to explain
+2. change up some constants like my user id in `main.py` and my fedi instance in i guess all the python files
+3. use `create.py` and `login.py` scripts to generate files with mastodon credentials
+4. put `main.py` in a cron job
+5. delete 200 toots this thing created based on 200 tweets it saw that were actually pretty old oh well guess you should've commented shit out but that was difficult to explain
