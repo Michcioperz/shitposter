@@ -1,5 +1,6 @@
 #!/usr/bin/env nix-shell
 #!nix-shell -i python3 -p "python3.withPackages (ps: [ps.tweepy ps.mastodon-py])"
+import html
 import json
 import os
 import sqlite3
@@ -53,7 +54,9 @@ for tweet in new_tweets:
             if parent_tweet_id is not None
             else None
         )
-        toot = mastodon.status_post(tweet.full_text, in_reply_to_id=parent_toot_id)
+        toot = mastodon.status_post(
+            html.unescape(tweet.full_text), in_reply_to_id=parent_toot_id
+        )
         conn.execute(
             "INSERT INTO kv(key, value) VALUES (?, ?)", (tweet.id_str, str(toot.id))
         )
